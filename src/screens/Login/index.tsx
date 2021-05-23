@@ -1,4 +1,4 @@
-import './index.css'
+import './index.scss'
 
 import React, { useState } from 'react'
 
@@ -64,15 +64,16 @@ export default function Login({ refresh }: Props) {
 
   return (
     <div className="Login">
-      <div className="loginWrapper">
-        <div className="heroicLogo">
-          <span className="logo" />
-          <div className="heroicText">
-            <span className="heroicTitle">Heroic</span>
-            <span className="heroicSubTitle">Games Launcher</span>
+      <div className="LoginBackground">
+        <div className="LoginBackgroundImage"></div>
+        <div className="LoginBackgroundText">
+          <div className="heroicLogo">
+            <span className="logo" />
+            <div className="heroicText">
+              <span className="heroicTitle">Heroic</span>
+              <span className="heroicSubTitle">Games Launcher</span>
+            </div>
           </div>
-        </div>
-        <div className="loginFormWrapper">
           <span className="loginInstructions">
             <strong>{t('welcome', 'Welcome!')}</strong>
             <p>
@@ -106,46 +107,52 @@ export default function Login({ refresh }: Props) {
               </li>
             </ol>
           </span>
-          <div className="loginForm">
-            <input
-              className="loginInput"
-              id="sidInput"
-              onChange={(event) => setInput(event.target.value)}
-              placeholder={t('input.placeholder', 'Paste the SID number here')}
-            />
-            {loading && (
-              <p className="message">
-                {message}
-                <Autorenew className="material-icons" />{' '}
-              </p>
-            )}
-            <button
-              onClick={() => handleLogin(input)}
-              className="button is-primary"
-              disabled={loading || input.length < 30}
-            >
-              {t('button.login', 'Login')}
-            </button>
-          </div>
-          <span
-            style={{
-              display: 'flex',
-              justifyContent: 'flex-end',
-              marginBottom: '22px',
-              paddingRight: '22px',
-              width: '100%'
-            }}
-          >
-            <LanguageSelector
-              handleLanguageChange={handleChangeLanguage}
-              currentLanguage={currentLanguage}
-              flagPossition={FlagPosition.PREPEND}
-              className="settingSelect language-login"
-            />
-          </span>
         </div>
       </div>
-      <span className="loginBackground"></span>
+      <div className="LoginPanel">
+        <div className="loginWrapper">
+          <div className="loginFormWrapper">
+            <div className="loginForm">
+              <span className="pasteSIDText">{t('input.placeholder', 'Paste the SID number here')}</span>
+              <input
+                className="loginInput"
+                id="sidInput"
+                onChange={(event) => setInput(event.target.value)}
+              />
+              {loading && (
+                <p className="message">
+                  {message}
+                  <Autorenew className="material-icons" />{' '}
+                </p>
+              )}
+              <button
+                onClick={() => handleLogin(input)}
+                className="button is-primary"
+                disabled={loading || input.length < 30}
+              >
+                {t('button.login', 'Login')}
+              </button>
+            </div>
+            <span
+              style={{
+                display: 'flex',
+                justifyContent: 'flex-end',
+                marginBottom: '22px',
+                paddingRight: '22px',
+                width: '100%'
+              }}
+            >
+              <LanguageSelector
+                handleLanguageChange={handleChangeLanguage}
+                currentLanguage={currentLanguage}
+                flagPossition={FlagPosition.PREPEND}
+                className="settingSelect language-login"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
+
   )
 }
