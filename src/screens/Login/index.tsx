@@ -1,5 +1,3 @@
-import './index.scss'
-
 import React, { useState } from 'react'
 
 import { loginPage, sidInfoPage } from 'src/helpers'
@@ -133,24 +131,18 @@ export default function Login({ refresh }: Props) {
                 {t('button.login', 'Login')}
               </button>
             </div>
-            <span
-              style={{
-                display: 'flex',
-                justifyContent: 'flex-end',
-                marginBottom: '22px',
-                paddingRight: '22px',
-                width: '100%'
-              }}
-            >
-              <LanguageSelector
-                handleLanguageChange={handleChangeLanguage}
-                currentLanguage={currentLanguage}
-                flagPossition={FlagPosition.PREPEND}
-                className="settingSelect language-login"
-              />
-            </span>
           </div>
         </div>
+        <span
+          className='language-selector-span'
+        >
+          <LanguageSelector
+            handleLanguageChange={handleChangeLanguage}
+            currentLanguage={currentLanguage}
+            flagPossition={FlagPosition.PREPEND}
+            className="settingSelect language-login"
+          />
+        </span>
       </div>
     </div>
 

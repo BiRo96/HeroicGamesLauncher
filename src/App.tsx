@@ -1,6 +1,6 @@
 import React, { lazy, useContext } from 'react'
 
-import './App.css'
+import './App.scss'
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import { Library } from './screens/Library'
 import ContextProvider from './state/ContextProvider'

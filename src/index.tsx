@@ -5,7 +5,6 @@ import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 import i18next from 'i18next'
 
-import './index.css'
 import App from 'src/App'
 import GlobalState from 'src/state/GlobalState'
 import UpdateComponent from 'src/components/UI/UpdateComponent'
